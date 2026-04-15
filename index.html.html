@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Screen Time Reform</title>
+  <style>
+    :root{
+      --bg:#f4f1ec;
+      --paper:#fffdf9;
+      --ink:#1f1d1a;
+      --muted:#6a655e;
+      --line:#ddd5cb;
+      --accent:#2b4c7e;
+      --accent-soft:#e9eff7;
+      --shadow:0 10px 30px rgba(31,29,26,.06);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Georgia, "Times New Roman", serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.7;
+    }
+    a{color:var(--accent)}
+    .wrap{
+      max-width:1120px;
+      margin:0 auto;
+      padding:0 22px;
+    }
+    header{
+      padding:24px 0 10px;
+    }
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:14px;
+      color:var(--muted);
+    }
+    .hero{
+      padding:64px 0 52px;
+    }
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,253,249,.94), rgba(255,253,249,.98));
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:64px 48px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute;
+      inset:auto -120px -120px auto;
+      width:340px;
+      height:340px;
+      background:radial-gradient(circle, rgba(43,76,126,.12), rgba(43,76,126,0));
+      border-radius:50%;
+    }
+    .eyebrow{
+      font-family: Arial, Helvetica, sans-serif;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--muted);
+      font-size:12px;
+      margin-bottom:16px;
+    }
+    h1,h2,h3{
+      margin:0 0 14px;
+      line-height:1.15;
+      font-weight:700;
+    }
+    h1{font-size:clamp(2.4rem, 6vw, 4.8rem); max-width:760px;}
+    h2{font-size:2rem}
+    h3{font-size:1.15rem}
+    .subtitle{
+      max-width:760px;
+      font-size:1.12rem;
+      color:var(--muted);
+      margin:0 0 28px;
+    }
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:14px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      border-radius:999px;
+      padding:13px 18px;
+      border:1px solid var(--line);
+      background:var(--paper);
+      color:var(--ink);
+      font-weight:600;
+    }
+    .btn.primary{
+      background:var(--accent);
+      color:white;
+      border-color:var(--accent);
+    }
+    main{padding-bottom:72px}
+    section{margin:0 0 30px}
+    .grid{
+      display:grid;
+      gap:20px;
+    }
+    .stats{
+      grid-template-columns:repeat(3,1fr);
+      margin-top:18px;
+    }
+    .two{
+      grid-template-columns:1.2fr .8fr;
+    }
+    .three{
+      grid-template-columns:repeat(3,1fr);
+    }
+    .card{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:26px;
+      box-shadow:var(--shadow);
+    }
+    .stat-num{
+      font-size:2.1rem;
+      font-weight:700;
+      margin-bottom:8px;
+    }
+    .muted{color:var(--muted)}
+    .label{
+      display:inline-block;
+      margin-bottom:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:var(--accent-soft);
+      color:var(--accent);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+    .quote{
+      margin-top:18px;
+      padding:20px;
+      border-left:4px solid var(--accent);
+      background:#f7fafc;
+      border-radius:10px;
+      font-style:italic;
+    }
+    .list{
+      margin:0;
+      padding-left:18px;
+    }
+    .list li{margin:0 0 8px}
+    .feature-title{
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--muted);
+      margin-bottom:10px;
+    }
+    .linkbox{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:12px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .handle{
+      font-weight:700;
+      font-size:1.05rem;
+    }
+    footer{
+      padding:26px 0 50px;
+      text-align:center;
+      color:var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:14px;
+    }
+    @media (max-width: 900px){
+      .stats,.two,.three{grid-template-columns:1fr}
+      .hero-card{padding:42px 24px}
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <div class="topbar">
+      <div>Screen Time Reform Project</div>
+      <div>Student awareness campaign</div>
+    </div>
+  </header>
+
+  <section class="hero wrap">
+    <div class="hero-card">
+      <div class="eyebrow">Odyssey reform project</div>
+      <h1>Rethink Your Screen Time</h1>
+      <p class="subtitle">
+        An academic awareness project focused on how excessive phone use can affect
+        student development, focus, mental health, and real-life social interaction.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLScPxtI70sneKBhyTQb3Emv3QnwXbm_v-qhGXokRk3VubSVSlw/viewform?usp=header" target="_blank" rel="noopener noreferrer">Take the Survey</a>
+        <a class="btn" href="#project">View the Project</a>
+        <a class="btn" href="https://instagram.com/screentimereform" target="_blank" rel="noopener noreferrer">Instagram: @screentimereform</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <section>
+      <div class="card">
+        <span class="label">Project focus</span>
+        <h2>Why this issue matters</h2>
+        <p class="muted">
+          This project asks students to think critically about how often they use their phones
+          and what that use may be replacing. Rather than only focusing on rules or restrictions,
+          the project emphasizes awareness, reflection, and healthier habits.
+        </p>
+        <div class="grid stats">
+          <div>
+            <div class="stat-num">6 years</div>
+            <div class="muted">A commonly cited estimate suggests that by age 17, teens may spend years of their lives looking at screens.</div>
+          </div>
+          <div>
+            <div class="stat-num">Play-based → Phone-based</div>
+            <div class="muted">Jonathan Haidt argues that childhood has shifted away from real-world play and toward screen-based interaction.</div>
+          </div>
+          <div>
+            <div class="stat-num">Awareness first</div>
+            <div class="muted">The goal is to help students recognize their own habits and make more thoughtful choices about screen time.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="project" class="grid two">
+      <div class="card">
+        <span class="label">Book connection</span>
+        <h2><em>The Anxious Generation</em></h2>
+        <p>
+          This reform project was shaped by Jonathan Haidt’s argument that young people need
+          a wide variety of real-world social experiences in order to develop into flexible and
+          socially skilled adults. The project connects that idea to student life by asking how
+          much time is now being spent on phones instead.
+        </p>
+        <div class="quote">
+          The project is not only about reducing screen time. It is about creating more room
+          for focus, face-to-face interaction, and reflection.
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="label">Key questions</span>
+        <h2>What this project asks</h2>
+        <ul class="list">
+          <li>How much time are students actually spending on their phones each day?</li>
+          <li>How does that affect focus, sleep, and social development?</li>
+          <li>Can awareness change everyday habits?</li>
+          <li>What would students do with more time off-screen?</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="grid three">
+      <div class="card">
+        <div class="feature-title">Survey</div>
+        <h3>Student data</h3>
+        <p class="muted">
+          A screen time survey gathers student responses about daily phone use and awareness of those habits.
+        </p>
+      </div>
+      <div class="card">
+        <div class="feature-title">Presentation</div>
+        <h3>Research + reflection</h3>
+        <p class="muted">
+          A multimedia presentation brings together survey results, research, and interview insights.
+        </p>
+      </div>
+      <div class="card">
+        <div class="feature-title">Campaign</div>
+        <h3>Poster + Instagram</h3>
+        <p class="muted">
+          Visual and social media elements help spread the message beyond the classroom and encourage engagement.
+        </p>
+      </div>
+    </section>
+
+    <section class="grid two">
+      <div class="card">
+        <span class="label">Get involved</span>
+        <h2>Take the survey</h2>
+        <p class="muted">
+          The survey is one of the main ways this project collects student input and turns it into something visible.
+        </p>
+        <div class="linkbox">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScPxtI70sneKBhyTQb3Emv3QnwXbm_v-qhGXokRk3VubSVSlw/viewform?usp=header" target="_blank" rel="noopener noreferrer">Open the survey</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="label">Social media</span>
+        <h2>Instagram campaign</h2>
+        <p class="muted">
+          Follow the account for survey updates, awareness posts, and reflection prompts related to screen time.
+        </p>
+        <div class="handle">@screentimereform</div>
+        <div class="linkbox">
+          <a href="https://instagram.com/screentimereform" target="_blank" rel="noopener noreferrer">Visit Instagram</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <span class="label">Challenge</span>
+        <h2>Phone-free reflection</h2>
+        <p class="muted">
+          One goal of this project is to encourage students to ask a simple question:
+          what would change if some of that screen time were replaced with real-world time?
+        </p>
+        <ul class="list">
+          <li>Try one phone-free class period.</li>
+          <li>Try one phone-free lunch.</li>
+          <li>Try one school day with limited nonessential screen use.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    Created for a student reform project on screen time, awareness, and student behavior.
+  </footer>
+</body>
+</html>
